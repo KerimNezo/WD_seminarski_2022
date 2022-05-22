@@ -131,3 +131,28 @@ const putBookForm = (bookid,title,genre,image,authorid) => {
 
     putMethod.innerHTML = resultPutMethodHTML;
 }
+
+// PUT endpoint kojim mijenjamo podatke o već postojećim knjigama
+const putBook = () => {
+
+    const bookId = document.getElementById('put-method-book-id').value;
+    const title = document.getElementById('put-method-book-title').value;
+    const genre = document.getElementById('put-method-book-genre').value;
+    const image = document.getElementById('put-method-book-image').value;
+    const authorId = document.getElementById('put-method-author-id').value;
+
+    fetch(`${BASE_URL}/books`, {
+        method: 'PUT',
+        headers: {'Content-type': 'application/json'},
+        body: JSON.stringify({
+            bookId: bookId,
+            name: title,
+            genre: genre,
+            image: image,
+            authorId: authorId
+        })
+    })
+    .then(res => {
+        console.log(res);
+    })
+}
