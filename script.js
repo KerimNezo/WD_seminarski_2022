@@ -156,3 +156,14 @@ const putBook = () => {
         console.log(res);
     })
 }
+
+// DELETE endpoint koji koristimo da "obrišemo" knjigu (brišemo sve podatke o knjizi)
+const deleteBook = (id) => {
+    fetch(`${BASE_URL}/books/${String(id)}`, {
+        method: 'DELETE',
+        headers: {'Content-type': 'application/json'}
+    })
+    .then(res => {
+        console.log(res);
+    })
+}
