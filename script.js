@@ -69,3 +69,26 @@ const renderBooks = (books) => {
 
     booksRow.innerHTML = resultHtml;
 }
+
+// POST endpoint kojim dodajemo knjige u bazu podataka
+const addBook = () => {
+
+    const title = document.getElementById('book-title').value;
+    const genre = document.getElementById('book-genre').value;
+    const image = document.getElementById('book-image').value;
+    const authorId = document.getElementById('author-id').value;
+
+    fetch(`${BASE_URL}/books`, {
+        method: 'POST',
+        headers: {'Content-type': 'application/json'},
+        body: JSON.stringify({
+            name: title,
+            genre: genre,
+            image: image,
+            authorId: authorId
+        })
+    })
+    .then(res => {
+        console.log(res);
+    })
+}
