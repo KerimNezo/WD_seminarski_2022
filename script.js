@@ -92,3 +92,42 @@ const addBook = () => {
         console.log(res);
     })
 }
+
+// funckija koju koristima za izmjenu podataka o knjigama
+const putBookForm = (bookid,title,genre,image,authorid) => {
+
+    let VARbookID = bookid;
+    let VARtitle = title;
+    let VARgenre = genre;
+    let VARimage = image;
+    let VARauthorID = authorid;
+
+    const putMethod = document.getElementById('put-method');
+
+    let resultPutMethodHTML = '';
+
+    resultPutMethodHTML += `
+    <div class="modal-body">
+        <form>
+            <div class="mb-3">
+                <label for="book-Id" class="col-form-label">Book ID: </label>
+                <input type="text" class="form-control" id="put-method-book-id" value="${VARbookID}">
+                <label for="book-title" class="col-form-label">Title: </label>
+                <input type="text" class="form-control" id="put-method-book-title" value="${VARtitle}">
+                <label for="book-genre" class="col-form-label">Genre: </label>
+                <input type="text" class="form-control" id="put-method-book-genre" value="${VARgenre}">
+                <label for="book-image" class="col-form-label">Cover image: </label>
+                <input type="text" class="form-control" id="put-method-book-image" value="${VARimage}">
+                <label for="author-id" class="col-form-label">Author ID: </label>
+                <input type="text" class="form-control" id="put-method-author-id" value="${VARauthorID}">
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="putBook()">Submit</button>
+    </div>
+    `;
+
+    putMethod.innerHTML = resultPutMethodHTML;
+}
